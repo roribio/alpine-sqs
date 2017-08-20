@@ -1,0 +1,44 @@
+# Copyright 2017 Ronald E. Oribio R.
+#
+# This file is part of alpine-sqs which is released under the GPLv3.
+# See https://github.com/roribio/alpine-sqs for details.
+
+FROM appropriate/curl as Builder
+
+ARG jq_version=1.5
+
+WORKDIR /tmp/sqs-alpine
+
+RUN \
+  apk add --update git \
+  && rm -rf /var/cache/apk/* \
+  && git clone --verbose --depth=1 https://github.com/finanzcheck/sqs-insight.git \
+  && curl -L -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64 \
+  && chmod +x /usr/local/bin/jq \
+  && export server_version=$(curl -s https://api.github.com/repos/adamw/elasticmq/releases/latest | jq -r .tag_name | cut -d "-" -f 2) \
+  && curl -LO https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-${server_version}.jar \
+  && mv elasticmq-server-${server_version}.jar elasticmq-server.jar
+
+FROM anapsix/alpine-java:8
+LABEL maintainer="Ronald E. Oribio R. https://github.com/roribio"
+
+WORKDIR /opt/sqs-insight
+
+COPY --from=Builder /tmp/sqs-alpine/ /opt/
+
+RUN \
+  apk add --update \
+    nodejs \
+    supervisor \
+  && rm -rf \
+    /var/cache/apk/* \
+    /etc/supervisord.conf \
+  && npm install
+
+COPY etc/ /etc/
+COPY opt/ /opt/
+
+EXPOSE 9324 9325 
+
+ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
+

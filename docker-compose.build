@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  alpine-sqs:
+    build:
+      context: .
+#      args:
+#        - jq_version=${jq_version}
+    image: alpine-sqs:dev
+    container_name: alpine-sqs
+    ports:
+      - "9324:9324"
+      - "9325:9325"
+    stdin_open: true
+    tty: true
+
