@@ -22,9 +22,9 @@ RUN \
 FROM anapsix/alpine-java:8
 LABEL maintainer="Ronald E. Oribio R. https://github.com/roribio"
 
-WORKDIR /opt/sqs-insight
-
 COPY --from=Builder /tmp/sqs-alpine/ /opt/
+COPY etc/ /etc/
+COPY opt/ /opt/
 
 RUN \
   apk add --update \
@@ -33,10 +33,9 @@ RUN \
   && rm -rf \
     /var/cache/apk/* \
     /etc/supervisord.conf \
+  && ln -s /etc/supervisor/supervisord.conf /etc/supervisord.conf \
+  && cd /opt/sqs-insight \
   && npm install
-
-COPY etc/ /etc/
-COPY opt/ /opt/
 
 EXPOSE 9324 9325 
 
