@@ -2,7 +2,7 @@ version: '3'
 
 services:
    alpine-sqs:
-     image: alpine-sqs:dev
+     image: roribio16/alpine-sqs:latest
      container_name: alpine-sqs
      ports:
        - "9324:9324"
