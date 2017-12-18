@@ -29,6 +29,7 @@ COPY opt/ /opt/
 RUN \
   apk add --update \
     nodejs \
+    nodejs-npm \
     supervisor \
   && rm -rf \
     /var/cache/apk/* \
