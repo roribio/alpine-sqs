@@ -1,6 +1,6 @@
 # Alpine SQS _(alpine-sqs)_
 
-![banner](./banner.png)
+![banner](https://raw.githubusercontent.com/roribio/alpine-sqs/master/banner.png)
 
 [![](https://images.microbadger.com/badges/image/roribio16/alpine-sqs.svg)](https://microbadger.com/images/roribio16/alpine-sqs "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/roribio16/alpine-sqs.svg)](https://microbadger.com/images/roribio16/alpine-sqs "Get your own version badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/stars/roribio16/alpine-sqs.svg)](https://hub.docker.com/r/roribio16/alpine-sqs/) [![Docker Pulls](https://img.shields.io/docker/pulls/roribio16/alpine-sqs.svg)](https://hub.docker.com/r/roribio16/alpine-sqs/) [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
