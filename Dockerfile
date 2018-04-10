@@ -12,7 +12,7 @@ WORKDIR /tmp/sqs-alpine
 RUN \
   apk add --update git \
   && rm -rf /var/cache/apk/* \
-  && git clone --verbose --depth=1 https://github.com/finanzcheck/sqs-insight.git \
+  && git clone --verbose --depth=1 https://github.com/kobim/sqs-insight.git \
   && curl -L -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64 \
   && chmod +x /usr/local/bin/jq \
   && export server_version=$(curl -s https://api.github.com/repos/adamw/elasticmq/releases/latest | jq -r .tag_name | cut -d "-" -f 2) \
