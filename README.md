@@ -80,6 +80,20 @@ If `/opt/alpine-sqs` miss some configuration files the default ones will be used
 
 #### 2. `docker-compose up` method
 If you've cloned the repository you can still take advantage of the image present in Docker Hub by running the container from the default `docker-compose.yml` file. This will pull the pre-built image from the public registry and run it with the same values stated in the previous method.
+```
+example docker-compose.yml usage:
+...
+  sqs:
+    image: "roribio/alpine-sqs"
+    environment:
+    - VISIBLE_QUEUES=receiver,pipeline
+    - QUEUE_ACCESS_KEY=access_key
+    - QUEUE_SECRET_KEY=secret_key
+    ports:
+    - "9324:9324"
+    - "9325:9325"
+...
+```
 
 ```
 docker-compose up -d
