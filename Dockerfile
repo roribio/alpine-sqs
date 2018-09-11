@@ -31,6 +31,7 @@ RUN \
     nodejs \
     nodejs-npm \
     supervisor \
+    vim \
   && rm -rf \
     /var/cache/apk/* \
     /etc/supervisord.conf \
