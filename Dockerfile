@@ -15,9 +15,10 @@ RUN \
   && git clone --verbose --depth=1 https://github.com/kobim/sqs-insight.git \
   && curl -L -o /usr/local/bin/jq https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64 \
   && chmod +x /usr/local/bin/jq \
-  && export server_version=$(curl -s https://api.github.com/repos/adamw/elasticmq/releases/latest | jq -r .tag_name | cut -d "-" -f 2) \
-  && curl -LO https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-${server_version}.jar \
-  && mv elasticmq-server-${server_version}.jar elasticmq-server.jar
+  && export elasticmq_version=$(curl -s https://api.github.com/repos/adamw/elasticmq/releases/latest | jq -r .tag_name) \
+  && elasticmq_version=${elasticmq_version//v} \
+  && curl -LO https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-${elasticmq_version}.jar \
+  && mv elasticmq-server-${elasticmq_version}.jar elasticmq-server.jar
 
 FROM anapsix/alpine-java:8
 LABEL maintainer="Ronald E. Oribio R. https://github.com/roribio"
