@@ -68,15 +68,16 @@ Use this method if you're pulling directly from Docker Hub and do not have a `do
 ```
 docker run --name alpine-sqs -p 9324:9324 -p 9325:9325 -d roribio16/alpine-sqs:latest
 ```
-Alternatively, if you'd like to be able to edit configuration files locally, without having to enter the container, you can mount your local configuration directory on `/opt/custom`. ElasticMQ config is read from `elasticmq.conf` file and sqs-insight config lies in `sqs-insight.conf`.
 
-Providing for sake of example that in `/opt/alpine-sqs` you have both `elasticmq.conf` and `sqs-insight.conf` files you can run the container with:
+Custom configuration files may be used to override default behaviors. You can mount a volume mapping the container's `/opt/custom` directory to a folder in your host machine where the custom configuration files are stored.
+
+Providing for sake of example that in your host machine directory `/opt/alpine-sqs` you have both `elasticmq.conf` and `sqs-insight.conf` files, you can run the container with:
 
 ```
 docker run --name alpine-sqs -p 9324:9324 -p 9325:9325 -v /opt/alpine-sqs:/opt/custom -d roribio16/alpine-sqs:latest
 ```
 
-If `/opt/alpine-sqs` miss some configuration files the default ones will be used for missing ones.
+For any configuration file not explicitly included in the container's `/opt/custom` directory, `alpine-sqs` will fall back to using the default configuration files listed [here](https://github.com/roribio/alpine-sqs/tree/master/opt).
 
 #### 2. `docker-compose up` method
 If you've cloned the repository you can still take advantage of the image present in Docker Hub by running the container from the default `docker-compose.yml` file. This will pull the pre-built image from the public registry and run it with the same values stated in the previous method.
