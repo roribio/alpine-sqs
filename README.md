@@ -38,7 +38,7 @@ Using his work as inspiration I decided to improve upon it by implementing the f
 For more information on the different projects this work is based on, please visit:
 
 - [ElasticMQ](https://github.com/adamw/elasticmq) by [@adamw](https://github.com/adamw).
-- [sqs-insight](https://github.com/finanzcheck/sqs-insight) by [finanzcheck](https://github.com/finanzcheck).
+- [sqs-insight](https://github.com/kobim/sqs-insight) fork by [kobim](https://github.com/kobim/). Fork of [finanzcheck's now-archived sqs-insight](https://github.com/finanzcheck/sqs-insight).
 - [docker-alpine-java](https://github.com/anapsix/docker-alpine-java) by [anapsix](https://github.com/anapsix).
 
 ## Install
