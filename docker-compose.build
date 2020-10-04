@@ -4,8 +4,6 @@ services:
   alpine-sqs:
     build:
       context: .
-#      args:
-#        - jq_version=${jq_version}
     image: alpine-sqs:dev
     container_name: alpine-sqs
     ports:

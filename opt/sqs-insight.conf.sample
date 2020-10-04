@@ -1,0 +1,30 @@
+{
+    "port": 9325,
+    "rememberMessages": 100,
+
+    "endpoints": [
+        {
+            "key": "notValidKey",
+            "secretKey": "notValidSecret",
+            "region": "eu-central-1",
+            "url": "http://sqs.amazonaws.com/my-user/my-queue"
+        },
+        {
+            "key": "notValidKey",
+            "secretKey": "notValidSecret",
+            "region": "eu-central-1",
+            "url": "http://sqs.amazonaws.com/my-user/my-queue-2"
+        }
+    ],
+
+    "dynamicEndpoints": [
+        {
+            "key": "localSQS",
+            "secretKey": "localSQS",
+            "region": "us-west-1",
+            "url": "http://127.0.0.1:9324"
+        }
+
+    ]
+}
+

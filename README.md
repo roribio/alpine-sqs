@@ -6,7 +6,7 @@
 
 > Dockerized ElasticMQ server + web UI over Alpine Linux for local development.
 
-Alpine SQS provides a containerized Java implementation of the Amazon Simple Queue Service (AWS-SQS). It is based on ElasticMQ running Alpine Linux and the Oracle Java 8 Server-JRE. It is compatible with AWS's API, CLI as well as the Amazon Java SDK. This allows for quicker local development without having to incurr in infrastructure costs.
+Alpine SQS provides a containerized Java implementation of the Amazon Simple Queue Service (AWS-SQS). It is based on ElasticMQ running Alpine Linux and the OpenJDK Java 8 JRE. It is compatible with AWS's API, CLI as well as the Amazon Java SDK. This allows for quicker local development without having to incurr in infrastructure costs.
 
 The goal of this repository is to maintain an updated Docker environment for ElasticMQ with an integrated web UI for visualizing queues and messages.
 
@@ -37,9 +37,8 @@ Using his work as inspiration I decided to improve upon it by implementing the f
 ### See also
 For more information on the different projects this work is based on, please visit:
 
-- [ElasticMQ](https://github.com/adamw/elasticmq) by [@adamw](https://github.com/adamw).
+- [ElasticMQ](https://github.com/softwaremill/elasticmq).
 - [sqs-insight](https://github.com/kobim/sqs-insight) fork by [kobim](https://github.com/kobim/). Fork of [finanzcheck's now-archived sqs-insight](https://github.com/finanzcheck/sqs-insight).
-- [docker-alpine-java](https://github.com/anapsix/docker-alpine-java) by [anapsix](https://github.com/anapsix).
 
 ## Install
 ### Pre-requisites
