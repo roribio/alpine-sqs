@@ -105,6 +105,9 @@ The default configuration provisions ElasticMQ with a initial queue of the same 
 
 To make use of this queue, point your client to: `http://localhost:9324/queue/default`.
 
+#### Dead letter queue
+The default dead letter queue is called dlq, configured in [opt/elasticmq.conf](https://github.com/softwaremill/elasticmq#automatically-creating-queues-on-startup)
+
 #### Sending a message
 To send messages to a queue you need to specify the new endpoint url and queue url along with the message payload. The following example uses the AWS CLI to send a message to the `default` queue. 
 
