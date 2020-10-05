@@ -32,6 +32,8 @@ RUN \
     nodejs \
     nodejs-npm \
     supervisor \
+    libtasn1=4.14-r0 \
+  && apk upgrade musl \
   && rm -rf \
     /var/cache/apk/* \
     /etc/supervisord.conf \
