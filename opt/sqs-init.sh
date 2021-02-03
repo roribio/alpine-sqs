@@ -13,4 +13,3 @@ cp /opt/config/sqs-insight.conf /opt/sqs-insight/config/config_local.json
 
 sleep 1
 exit 0
-
